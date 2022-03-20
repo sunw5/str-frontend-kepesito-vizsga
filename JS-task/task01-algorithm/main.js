@@ -38,7 +38,7 @@ const movieList = [{
 function movieFilter(list, year, maxTimeInMinutes) {
     /* a megjelenés éve (adott évben megjelent)
     időtartam szerint (maximális időtartam percben, kevesebb is lehet) */
-    return list.filter(movie => movie.year === year && movie.timeInMinute <= maxTimeInMinutes).map(movie => movie.name)
+    return list.filter(movie => movie.year === year && movie.timeInMinute <= maxTimeInMinutes).map(movie => movie.title)
 }
 
 export {
