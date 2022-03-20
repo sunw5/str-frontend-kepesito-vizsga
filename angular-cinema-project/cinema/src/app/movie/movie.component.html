@@ -1,20 +1,63 @@
 <section class="container-md">
-  <form #mForm="ngForm">
+  <form #mForm="ngForm" (submit)="saveMovie()">
     <div class="form-group">
       <label class="text-warning" for="title">Movie Title:</label>
-      <input id="title" type="text" class="form-control"
-        required pattern="" name="title" [(ngModel)]="movie.title">
+      <input
+        id="title"
+        type="text"
+        class="form-control"
+        required
+        pattern="^[a-za-űA-ZA-Ű ]{5,25}"
+        name="title"
+        [(ngModel)]="movie.title"
+      />
     </div>
+
     <div class="row">
-      <div class="form-group col-6">
-
+      <div class="col">
+        <div class="form-group">
+          <label class="text-warning" for="year">Release year:</label>
+          <input
+            id="year"
+            type="number"
+            class="form-control"
+            required
+            pattern="^19[0-9][0-9]|20[0-1][0-9]|202[0-1]$"
+            name="year"
+            [(ngModel)]="movie.year"
+          />
+        </div>
       </div>
-      <div class="form-group col-6">
-
+      <div class="col">
+        <div class="form-group">
+          <label class="text-warning" for="category">Category:</label>
+          <select
+            id="category"
+            class="form-control"
+            required
+            name="category"
+            [(ngModel)]="movie.category"
+          >
+            <option value="Choose Category" selected disabled>
+              Choose Category
+            </option>
+            <option value="Drama">Drama</option>
+            <option value="Action">Action</option>
+            <option value="Fantasy">Fantasy</option>
+          </select>
+        </div>
       </div>
     </div>
 
+    <div class="row">
+      <div class="form-group col-6"></div>
+      <div class="form-group col-6"></div>
+    </div>
+    <button [disabled]="mForm.invalid" class="btn btn-warning">Save</button>
+    <div>
+      <small [hidden]="mForm.valid" class="text-danger"
+        >Fill all field to save!</small
+      >
+    </div>
   </form>
-
-
 </section>

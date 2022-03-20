@@ -1,1 +1,27 @@
-.table-section {}
+@use 'mixin' as *;
+
+.table-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+
+
+  #get-button, th {
+    @include cinema-background-style;
+    margin-bottom: 1em;
+  }
+
+  #get-button, th, td {
+    @include set-text;
+  }
+
+  #delete-button {
+    @include delete-style;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: rgb(170, 170, 170);
+  }
+}
