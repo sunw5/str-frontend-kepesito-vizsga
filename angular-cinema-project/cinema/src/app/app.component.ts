@@ -17,6 +17,9 @@ export class AppComponent {
 
   constructor(){}
 
-  selectCategory(category){}
-  
+  selectCategory(category){
+    this.chosenByCategory = this.categoryCardList.find(c => c.category === category)
+    console.log(this.chosenByCategory);
+  }
+
 }
